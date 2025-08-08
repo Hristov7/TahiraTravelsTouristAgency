@@ -1,0 +1,63 @@
+﻿@using ViewModels.ViewModels
+@{
+    ViewData["Title"] = "All Tours";
+}
+@model IEnumerable<TourIndexViewModel>
+<link rel="stylesheet" href="~/css/searchbar.css" asp-append-version="true" />
+<div class="d-flex justify-content-between align-items-center mb-3" style="margin-top: 20px;">
+    <h2>@ViewData["Title"]</h2>
+    @if (User?.Identity?.IsAuthenticated == true)
+    {
+        <a asp-controller="Tour" asp-action="Create" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Add Tour
+        </a>
+    }
+</div>
+<form asp-action="Index" method="get">
+    <input type="text" name="searchString" placeholder="Search destinations..." value="@ViewData["CurrentFilter"]" />
+    <button type="submit">Search</button>
+</form>
+
+<div class="row text-center">
+    @foreach (var tour in Model)
+    {
+        <div class="col-md-3 mb-4">
+            <div class="card h-100" style="width: 100%;">
+                @if (!string.IsNullOrEmpty(tour.ImageUrl))
+                {
+                    <img src="@tour.ImageUrl" class="card-img-top" style="max-height: 150px; object-fit: contain;" alt="@tour.Name">
+                }
+                else
+                {
+                    <img src="~/images/default-image.jpg" class="card-img-top" style="max-height: 150px; object-fit: contain;" alt="No Image Available">
+                }
+
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">@tour.Name</h5>
+                    <p class="card-text">Category: @tour.Category</p>
+                    <p class="card-text"><small>Favorites: @tour.SavedCount</small></p>
+                    <div class="d-flex justify-content-between mt-auto">
+                        @if (User?.Identity?.IsAuthenticated == true && !tour.IsAuthor && !tour.IsSaved)
+                        {
+                            <a asp-controller="Tour" asp-action="Details" asp-route-id="@tour.Id" class="btn btn-info me-2 w-50">
+                                <i class="fas fa-info-circle"></i> Details
+                            </a>
+                            <form asp-controller="Tour" asp-action="Save" method="post" class="w-50">
+                                <input type="hidden" name="id" value="@tour.Id" />
+                                <button type="submit" class="btn btn-success w-100">
+                                    <i class="fas fa-heart"></i> Favorites
+                                </button>
+                            </form>
+                        }
+                        else
+                        {
+                            <a asp-controller="Tour" asp-action="Details" asp-route-id="@tour.Id" class="btn btn-info w-100">
+                                <i class="fas fa-info-circle"></i> Details
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
