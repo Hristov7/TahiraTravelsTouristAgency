@@ -1,0 +1,39 @@
+﻿<style>
+    .error-container {
+        text-align: center;
+        padding: 60px 20px;
+        font-family: Arial, sans-serif;
+    }
+
+    .error-code {
+        font-size: 5rem;
+        font-weight: bold;
+        color: #696969;
+    }
+
+    .error-message {
+        font-size: 1.5rem;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .error-link {
+        background-color: #696969;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+        .error-link:hover {
+            background-color: #505050;
+        }
+</style>
+
+<div class="error-container">
+    <div class="error-code">404</div>
+    <div class="error-message">Oops! The page you are looking for was not found.</div>
+    <p>It might have been removed, renamed, or is temporarily unavailable.</p>
+    <a href="@Url.Action("Index", "Home")" class="error-link">Back to Home</a>
+</div>
