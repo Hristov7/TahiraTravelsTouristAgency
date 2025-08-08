@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36212.18 d17.14
+VisualStudioVersion = 17.14.36212.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TahiraTravels", "TahiraTravels.csproj", "{D1A785C4-37CE-4AB9-9FB7-5552E860CC9B}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "..\Data\Data.csproj", "{18285844-5AB8-4F5B-B9E6-ABD3076BE0BA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "..\Models\Models.csproj", "{392FB168-A143-4FAA-AFDB-D27258E5CA54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "..\Core\Core.csproj", "{F50A3655-BFA1-4DEF-8F7B-5A7718615382}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{392FB168-A143-4FAA-AFDB-D27258E5CA54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{392FB168-A143-4FAA-AFDB-D27258E5CA54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{392FB168-A143-4FAA-AFDB-D27258E5CA54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F50A3655-BFA1-4DEF-8F7B-5A7718615382}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F50A3655-BFA1-4DEF-8F7B-5A7718615382}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F50A3655-BFA1-4DEF-8F7B-5A7718615382}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F50A3655-BFA1-4DEF-8F7B-5A7718615382}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +60,7 @@ Global
 		{61266B19-EEFC-49B3-A9E4-3728FBEAF295} = {516A5895-632B-4D4A-B855-C6D07D71284A}
 		{18285844-5AB8-4F5B-B9E6-ABD3076BE0BA} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{392FB168-A143-4FAA-AFDB-D27258E5CA54} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{F50A3655-BFA1-4DEF-8F7B-5A7718615382} = {40BBC827-74CD-4E99-95DC-CC632FC1E64B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6A370878-5E99-44E5-B37C-7B9F24EB64C8}

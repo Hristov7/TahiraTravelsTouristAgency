@@ -1,8 +1,34 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-5 welcome-section shadow-card">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-sm-10 text-center">
+            <h1 class="display-4">Welcome to TahiraTravels</h1>
+            <p class="lead">Dive into the amazing tourist destinations in the country and abroad.</p>
+            <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-primary btn-lg mt-3">Start Exploring Tour Destinations</a>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4 explore-section shadow-card">
+    <h2 class="text-center section-title">Explore Tour Destinations</h2>
+    <div class="row mt-4">
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center mb-4">
+            <img src="https://imgmain.buzztribe.news/photos/1/sri-lankas-pristine-beach-escapes-you-must-add-to-your-list.webp" asp-append-version="true" class="img-fluid rounded hover-zoom" alt="Appetizers">
+            <h5 class="mt-3">Beach Escapes</h5>
+            <p>Come and enjoy exotic and exceptionally clean beaches, with the opportunity to discover dishes from foreign cultures.</p>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center mb-4">
+            <img src="https://cdn.outsideonline.com/wp-content/uploads/2023/04/guided-hike_h.jpg" asp-append-version="true" class="img-fluid rounded hover-zoom" alt="Main Dishes">
+            <h5 class="mt-3">Mountain Adventures</h5>
+            <p>Try one of our superb nature walks, especially for people seeking a peaceful retreat from the hustle and bustle.</p>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center mb-4">
+            <img src="https://d2i7eq829tbbje.cloudfront.net/webp/dubai0_P_244_0d8c03f1-a8f7-4cb9-8fbe-b75ff53623f5" asp-append-version="true" class="img-fluid rounded hover-zoom" alt="Desserts">
+            <h5 class="mt-3">City Breaks</h5>
+            <p>Indulge in peaceful and relaxing city tours and remarkable landmarks.</p>
+        </div>
+    </div>
 </div>
