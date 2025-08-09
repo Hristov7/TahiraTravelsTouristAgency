@@ -4,6 +4,7 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(TahiraTravelsDbContext))]
-    partial class TahiraTravelsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250809044159_BookingEntityAdded")]
+    partial class BookingEntityAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -143,15 +146,15 @@ namespace Data.Migrations
                         {
                             Id = "df1c3a0f-1234-4cde-bb55-d5f15a6aabcd",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2e2ae977-b2b8-4dd4-ba1e-88901622f1ac",
+                            ConcurrencyStamp = "494e7676-a4fc-4a6d-b350-62a6adb1d055",
                             Email = "admin@tahiratravels.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@TAHIRATRAVELS.COM",
                             NormalizedUserName = "ADMIN@TAHIRATRAVELS.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMWcLhLwkpJ8J4Mi9HclQ5c/uxBVMBRxJoy3dSG5PM+/fTH00xmUIwIPUkE12/bBDQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJwYwuI6A2mR99bmgENwmSfwDcZxUBBGTPz0T3w1qPZPqbmD6ZWxeoru+NMA+44egw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a14bcea4-1737-4f38-881e-95633d0d43e5",
+                            SecurityStamp = "11e73e65-5632-424b-a55e-42253ecb4406",
                             TwoFactorEnabled = false,
                             UserName = "admin@tahiratravels.com"
                         });
@@ -272,7 +275,7 @@ namespace Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Bookings");
+                    b.ToTable("Booking");
                 });
 
             modelBuilder.Entity("Models.Category", b =>
@@ -373,7 +376,7 @@ namespace Data.Migrations
                             Id = 1,
                             AuthorId = "df1c3a0f-1234-4cde-bb55-d5f15a6aabcd",
                             CategoryId = 1,
-                            CreatedOn = new DateTime(2025, 8, 9, 7, 43, 36, 970, DateTimeKind.Local).AddTicks(6855),
+                            CreatedOn = new DateTime(2025, 8, 9, 7, 41, 58, 676, DateTimeKind.Local).AddTicks(7645),
                             Description = "A beautiful beach with golden sands and clear waters.",
                             ImageUrl = "https://sunnybeach-guide.com/wp-content/uploads/2024/03/sunny-beach-main-2.jpg",
                             IsDeleted = false,
@@ -384,7 +387,7 @@ namespace Data.Migrations
                             Id = 2,
                             AuthorId = "df1c3a0f-1234-4cde-bb55-d5f15a6aabcd",
                             CategoryId = 2,
-                            CreatedOn = new DateTime(2025, 8, 9, 7, 43, 36, 970, DateTimeKind.Local).AddTicks(6915),
+                            CreatedOn = new DateTime(2025, 8, 9, 7, 41, 58, 676, DateTimeKind.Local).AddTicks(7690),
                             Description = "A breathtaking mountain peak with stunning views.",
                             ImageUrl = "https://www.thetraveler.bg/wp-content/uploads/2021/01/Musala-6.jpg",
                             IsDeleted = false,
@@ -395,7 +398,7 @@ namespace Data.Migrations
                             Id = 3,
                             AuthorId = "df1c3a0f-1234-4cde-bb55-d5f15a6aabcd",
                             CategoryId = 3,
-                            CreatedOn = new DateTime(2025, 8, 9, 7, 43, 36, 970, DateTimeKind.Local).AddTicks(6918),
+                            CreatedOn = new DateTime(2025, 8, 9, 7, 41, 58, 676, DateTimeKind.Local).AddTicks(7693),
                             Description = "A vibrant city with a bustling nightlife. The Capital!",
                             ImageUrl = "https://endurotourssofia.com/wp-content/uploads/sofia.webp",
                             IsDeleted = false,

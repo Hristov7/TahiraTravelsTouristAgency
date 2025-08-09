@@ -32,6 +32,8 @@ namespace TahiraTravels
             builder.Services.AddControllersWithViews();
             builder.Services.AddScoped<ITourService, TourService>();
             builder.Services.AddScoped<ICategoryService, CategoryService>();
+            builder.Services.AddScoped<IBookingService, BookingService>();
+
 
             builder.Services.AddSignalR();
 

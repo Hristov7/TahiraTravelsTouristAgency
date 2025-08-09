@@ -1,0 +1,33 @@
+﻿@using Models
+@model IEnumerable<Booking>
+
+<h2>My Bookings</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tour</th>
+            <th>Date</th>
+            <th>People</th>
+            <th>Booked On</th>
+            <th>Cancel</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.Tour.Name</td>
+                <td>@booking.BookingDate.ToShortDateString()</td>
+                <td>@booking.NumberOfPeople</td>
+                <td>@booking.CreatedAt.ToShortDateString()</td>
+                <td><form asp-controller="Booking" asp-action="Delete" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@booking.Id" />
+                    <button type="submit" class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash"></i> Cancel
+                    </button>
+                </form></td>
+            </tr>
+        }
+    </tbody>
+</table>

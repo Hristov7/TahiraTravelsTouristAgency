@@ -1,0 +1,17 @@
+﻿<form asp-controller="Booking" asp-action="ConfirmBooking" method="post">
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" name="TourId" value="@Model.TourId" />
+
+    <div class="mb-3">
+        <label for="NumberOfPeople">Number of People</label>
+        <input type="number" id="NumberOfPeople" name="NumberOfPeople" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="BookingDate">Booking Date</label>
+        <input type="date" id="BookingDate" name="BookingDate" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Confirm Booking</button>
+</form>

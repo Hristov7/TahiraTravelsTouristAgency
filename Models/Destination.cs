@@ -35,5 +35,6 @@ namespace Models
         public bool IsDeleted { get; set; } = false;
 
         public ICollection<UserDestination> UsersDestinations { get; set; } = new HashSet<UserDestination>();
+        public ICollection<Booking> Bookings { get; set; } = new HashSet<Booking>();
     }
 }
