@@ -5,15 +5,17 @@ using System.Security.Claims;
 namespace TahiraTravels.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class BaseAdminController : Controller
+    //[Authorize(Roles = "Admin")]
+    public abstract class BaseAdminController : Controller
     {
         private bool IsUserAuthenticated()
         {
             bool retRes = false;
-            if(this.User.Identity != null)
+            if (this.User.Identity != null)
             {
                 retRes = this.User.Identity.IsAuthenticated;
             }
+
             return retRes;
         }
 
@@ -25,6 +27,7 @@ namespace TahiraTravels.Areas.Admin.Controllers
                 userId = this.User
                     .FindFirstValue(ClaimTypes.NameIdentifier);
             }
+
             return userId;
         }
     }
