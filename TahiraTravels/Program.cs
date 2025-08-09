@@ -4,6 +4,7 @@ using Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Models.Extennsions;
 using Models.Hubs;
 
 namespace TahiraTravels
@@ -51,7 +52,7 @@ namespace TahiraTravels
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseStatusCodePagesWithRedirects("/Home/Error?statusCode={0}");
+            app.UseStatusCodePagesWithRedirects("/  Home/Error?statusCode={0}");
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -60,6 +61,8 @@ namespace TahiraTravels
 
             app.UseAuthentication();
             app.UseAuthorization();
+            //TODO : POSSIBLE ERRORRRRRRKJSDBNrJASKNKASJRNSAJRNASJERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRREOAIJdOIASNHDiasBNDASDASDADIUABSUI
+            app.UserAdminRedirection();
 
             app.MapControllerRoute(
                 name: "areas",
