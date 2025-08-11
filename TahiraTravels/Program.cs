@@ -30,12 +30,15 @@ namespace TahiraTravels
                 options.Password.RequireUppercase = false;
                 options.Password.RequireNonAlphanumeric = false;
             })
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<TahiraTravelsDbContext>();
+
             builder.Services.AddControllersWithViews();
             builder.Services.AddScoped<ITourService, TourService>();
             builder.Services.AddScoped<ICategoryService, CategoryService>();
             builder.Services.AddScoped<IBookingService, BookingService>();
             builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<RoleManager<IdentityRole>>();
 
 
             builder.Services.AddSignalR();
@@ -65,6 +68,8 @@ namespace TahiraTravels
             app.UseAuthorization();
 
             app.UserAdminRedirection();
+
+            app.MapRazorPages();
 
             app.MapControllerRoute(
                 name: "areas",
