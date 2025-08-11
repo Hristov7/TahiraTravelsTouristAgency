@@ -13,8 +13,4 @@
     <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="8.0.17" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\CommonRestrictions\CommonRestrictions.csproj" />
-  </ItemGroup>
-
 </Project>

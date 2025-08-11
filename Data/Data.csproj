@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CommonRestrictions\CommonRestrictions.csproj" />
     <ProjectReference Include="..\Models\Models.csproj" />
   </ItemGroup>
 

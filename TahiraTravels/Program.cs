@@ -23,7 +23,7 @@ namespace TahiraTravels
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options =>
             {
-                options.SignIn.RequireConfirmedAccount = true;
+                options.SignIn.RequireConfirmedAccount = false;
                 options.Password.RequireDigit = false;
                 options.Password.RequireLowercase = false;
                 options.Password.RequireUppercase = false;
@@ -52,7 +52,7 @@ namespace TahiraTravels
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseStatusCodePagesWithRedirects("/  Home/Error?statusCode={0}");
+            app.UseStatusCodePagesWithRedirects("/Home/Error?statusCode={0}");
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -61,12 +61,12 @@ namespace TahiraTravels
 
             app.UseAuthentication();
             app.UseAuthorization();
-            //TODO : POSSIBLE ERRORRRRRRKJSDBNrJASKNKASJRNSAJRNASJERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRREOAIJdOIASNHDiasBNDASDASDADIUABSUI
+
             app.UserAdminRedirection();
 
             app.MapControllerRoute(
                 name: "areas",
-                pattern: "{area}/{controller=Home}/{action=Index}/{id?}");
+                pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
