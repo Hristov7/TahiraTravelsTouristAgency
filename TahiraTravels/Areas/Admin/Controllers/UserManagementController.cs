@@ -4,6 +4,7 @@ using ViewModels.ViewModels.Admin.UserManagement;
 
 namespace TahiraTravels.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class UserManagementController : BaseAdminController
     {
         private readonly IUserService userService;

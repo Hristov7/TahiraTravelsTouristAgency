@@ -201,11 +201,5 @@ namespace Core
                })
                .ToListAsync();
         }
-
-        public async Task<bool> IsTourSavedByUserAsync(int tourId, string userId)
-        {
-            return await dbContext.UsersDestinations
-                .AnyAsync(ud => ud.DestinationId == tourId && ud.UserId == userId);
-        }
     }
 }

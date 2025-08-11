@@ -15,10 +15,10 @@ namespace Data
         {
         }
 
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Destination> Destinations { get; set; }
-        public DbSet<UserDestination> UsersDestinations { get; set; }
-        public DbSet<Booking> Bookings { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Destination> Destinations { get; set; }
+        public virtual DbSet<UserDestination> UsersDestinations { get; set; }
+        public virtual DbSet<Booking> Bookings { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

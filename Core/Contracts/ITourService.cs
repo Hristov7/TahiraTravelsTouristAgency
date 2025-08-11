@@ -14,6 +14,5 @@ namespace Core.Contracts
         Task SaveTourAsync(int TourId, string userId);
         Task RemoveTourFromFavoritesAsync(int TourId, string userId);
         Task<IEnumerable<TourFavoriteViewModel>> GetFavoriteToursAsync(string userId);
-        Task<bool> IsTourSavedByUserAsync(int TourId, string userId);
     }
 }
