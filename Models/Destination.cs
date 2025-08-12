@@ -36,5 +36,6 @@ namespace Models
 
         public ICollection<UserDestination> UsersDestinations { get; set; } = new HashSet<UserDestination>();
         public ICollection<Booking> Bookings { get; set; } = new HashSet<Booking>();
+        public ICollection<Review> Reviews { get; set; } = new HashSet<Review>();
     }
 }

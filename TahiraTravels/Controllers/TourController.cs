@@ -11,11 +11,12 @@ namespace TahiraTravels.Controllers
     {
         private readonly ICategoryService _categoryService;
         private readonly ITourService _tourService;
-
-        public TourController(ICategoryService _categoryService, ITourService _tourService) 
+        private readonly IReviewService _reviewService;
+        public TourController(ICategoryService _categoryService, ITourService _tourService, IReviewService reviewService) 
         {
             this._categoryService = _categoryService;
             this._tourService = _tourService;
+            this._reviewService = reviewService;
         }
 
         [HttpGet]
@@ -38,12 +39,43 @@ namespace TahiraTravels.Controllers
             {
                 string? userId = User?.FindFirstValue(ClaimTypes.NameIdentifier);
                 var model = await _tourService.GetTourDetailsAsync(id, userId);
+
+                // Add reviews
+                model.Reviews = await _reviewService.GetReviewsForTourAsync(id);
+
+                // Check if user can review
+                model.CanReview = userId != null &&
+                                  await _reviewService.HasUserBookedTourAsync(id, userId);
+
                 return View(model);
             }
             catch (ArgumentException)
             {
                 return NotFound();
             }
+        }
+        [HttpGet]
+        public async Task<IActionResult> AddReview(int tourId)
+        {
+            string? userId = User?.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null || !await _reviewService.HasUserBookedTourAsync(tourId, userId))
+            {
+                return Forbid();
+            }
+            ViewBag.TourId = tourId;
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddReview(int tourId, string comment)
+        {
+            string? userId = User?.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null || !await _reviewService.HasUserBookedTourAsync(tourId, userId))
+            {
+                return Forbid();
+            }
+
+            await _reviewService.AddReviewAsync(tourId, userId, comment);
+            return RedirectToAction("Details", new { id = tourId });
         }
 
         [HttpGet]

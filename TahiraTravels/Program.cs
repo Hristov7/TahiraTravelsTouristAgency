@@ -39,6 +39,7 @@ namespace TahiraTravels
             builder.Services.AddScoped<IBookingService, BookingService>();
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<RoleManager<IdentityRole>>();
+            builder.Services.AddScoped<IReviewService, ReviewService>();
 
 
             builder.Services.AddSignalR();

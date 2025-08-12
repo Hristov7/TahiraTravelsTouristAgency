@@ -19,6 +19,7 @@ namespace Data
         public virtual DbSet<Destination> Destinations { get; set; }
         public virtual DbSet<UserDestination> UsersDestinations { get; set; }
         public virtual DbSet<Booking> Bookings { get; set; }
+        public virtual DbSet<Review> Reviews { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -36,6 +37,12 @@ namespace Data
             builder.Entity<Booking>()
                 .HasOne(b=>b.Tour)
                 .WithMany(t=>t.Bookings)
+                .HasForeignKey(b=>b.TourId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<Review>()
+                .HasOne(b=>b.Tour)
+                .WithMany()
                 .HasForeignKey(b=>b.TourId)
                 .OnDelete(DeleteBehavior.NoAction);
 

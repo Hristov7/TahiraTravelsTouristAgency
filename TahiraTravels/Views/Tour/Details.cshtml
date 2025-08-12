@@ -3,6 +3,7 @@
 }
 @using ViewModels.ViewModels
 @model TourDetailsViewModel
+
 <div class="d-flex justify-content-between align-items-center mb-3" style="margin-top: 20px;">
     <h2>@ViewData["Title"]</h2>
 </div>
@@ -61,6 +62,32 @@
                     </a>
                 }
             </div>
+            @if (Model.CanReview)
+            {
+                    <p></p>
+                <a asp-action="AddReview" asp-route-tourId="@Model.Id" class="btn btn-primary">
+                    Add Review
+                </a>
+            }
+
+            <hr />
+            <h4>Reviews</h4>
+
+            @if (Model.Reviews.Any())
+            {
+                @foreach (var review in Model.Reviews)
+                {
+                    <div class="border p-2 mb-2">
+                        <strong>@review.UserName</strong> <small class="text-muted">@review.CreatedAt.ToString("g")</small>
+                        <p>@review.Comment</p>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>No reviews yet for this tour.</p>
+            }
+
         </div>
     </div>
 </div>

@@ -12,5 +12,8 @@
         public string AuthorId { get; set; } = null!;
         public bool IsAuthor { get; set; }
         public bool IsSaved { get; set; }
+
+        public List<ReviewViewModel> Reviews { get; set; } = new();
+        public bool CanReview { get; set; }
     }
 }
