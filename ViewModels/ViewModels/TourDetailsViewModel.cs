@@ -1,4 +1,6 @@
-﻿namespace ViewModels.ViewModels
+﻿using Models;
+
+namespace ViewModels.ViewModels
 {
     public class TourDetailsViewModel
     {
@@ -15,5 +17,6 @@
 
         public List<ReviewViewModel> Reviews { get; set; } = new();
         public bool CanReview { get; set; }
+        public TourGuide? Guide { get; set; }
     }
 }

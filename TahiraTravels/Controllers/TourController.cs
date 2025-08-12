@@ -12,11 +12,13 @@ namespace TahiraTravels.Controllers
         private readonly ICategoryService _categoryService;
         private readonly ITourService _tourService;
         private readonly IReviewService _reviewService;
-        public TourController(ICategoryService _categoryService, ITourService _tourService, IReviewService reviewService) 
+        private readonly ITourGuideService _tourGuideService;
+        public TourController(ICategoryService _categoryService, ITourService _tourService, IReviewService reviewService, ITourGuideService tourGuideService) 
         {
             this._categoryService = _categoryService;
             this._tourService = _tourService;
             this._reviewService = reviewService;
+            this._tourGuideService = tourGuideService;
         }
 
         [HttpGet]
@@ -46,6 +48,10 @@ namespace TahiraTravels.Controllers
                 // Check if user can review
                 model.CanReview = userId != null &&
                                   await _reviewService.HasUserBookedTourAsync(id, userId);
+
+                // Load tour guide
+                var guide = await _tourGuideService.GetGuideForTourAsync(id);
+                model.Guide = guide;
 
                 return View(model);
             }

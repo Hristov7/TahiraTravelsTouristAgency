@@ -20,6 +20,7 @@ namespace Data
         public virtual DbSet<UserDestination> UsersDestinations { get; set; }
         public virtual DbSet<Booking> Bookings { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
+        public virtual DbSet<TourGuide> TourGuides { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -44,6 +45,12 @@ namespace Data
                 .HasOne(b=>b.Tour)
                 .WithMany()
                 .HasForeignKey(b=>b.TourId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<TourGuide>()
+                .HasOne(b => b.Tour)
+                .WithMany(g => g.TourGuides)
+                .HasForeignKey(b => b.TourId)
                 .OnDelete(DeleteBehavior.NoAction);
 
             var defaultUser = new IdentityUser
