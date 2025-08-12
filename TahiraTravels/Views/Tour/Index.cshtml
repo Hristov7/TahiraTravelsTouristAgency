@@ -14,6 +14,7 @@
     }
 </div>
 <form asp-action="Index" method="get">
+    @Html.AntiForgeryToken()
     <input type="text" name="searchString" placeholder="Search destinations..." value="@ViewData["CurrentFilter"]" />
     <button type="submit">Search</button>
 </form>
@@ -43,6 +44,7 @@
                                 <i class="fas fa-info-circle"></i> Details
                             </a>
                             <form asp-controller="Tour" asp-action="Save" method="post" class="w-50">
+                                @Html.AntiForgeryToken()
                                 <input type="hidden" name="id" value="@tour.Id" />
                                 <button type="submit" class="btn btn-success w-100">
                                     <i class="fas fa-heart"></i> Favorites

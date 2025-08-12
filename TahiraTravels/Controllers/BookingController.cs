@@ -31,7 +31,6 @@ namespace TahiraTravels.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> ConfirmBooking(BookingFormViewModel model)
         {
             if (!ModelState.IsValid)
@@ -52,7 +51,6 @@ namespace TahiraTravels.Controllers
         }
         [Authorize]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
             IdentityUser? user = await _userManager.GetUserAsync(User);

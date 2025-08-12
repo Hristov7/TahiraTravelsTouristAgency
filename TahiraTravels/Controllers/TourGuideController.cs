@@ -33,7 +33,6 @@ namespace TahiraTravels.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Add(TourGuideViewModel model)
         {

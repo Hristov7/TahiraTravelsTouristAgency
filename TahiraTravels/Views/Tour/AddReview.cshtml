@@ -4,6 +4,7 @@
 <h2>Add Review</h2>
 
 <form asp-action="AddReview" method="post">
+@Html.AntiForgeryToken()
     <input type="hidden" name="tourId" value="@ViewBag.TourId" />
     <div class="mb-3">
         <textarea name="comment" class="form-control" placeholder="Write your review..." required></textarea>

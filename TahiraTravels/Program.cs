@@ -2,8 +2,8 @@ using Core;
 using Core.Contracts;
 using Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using Models.Extennsions;
 using Models.Hubs;
 
@@ -33,7 +33,11 @@ namespace TahiraTravels
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<TahiraTravelsDbContext>();
 
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews(options =>
+            {
+                options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+            });
+
             builder.Services.AddScoped<ITourService, TourService>();
             builder.Services.AddScoped<ICategoryService, CategoryService>();
             builder.Services.AddScoped<IBookingService, BookingService>();
